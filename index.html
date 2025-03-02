@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let it go</title>
+</head>
+<body>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const playBtn = document.getElementById('playBtn');
+            const play = document.getElementById('play');
+
+            playBtn.addEventListener('click', function() {
+                window.location.href = './MV.html';
+            });
+
+            play.addEventListener('click', function() {
+                window.location.href = './audio.html';
+            });
+        });
+    </script>
+
+    <h1>音乐</h1>
+    <button id="play">
+        start
+    </button>
+    <h1>MV</h1>
+    <button id="playBtn">
+        start
+    </button>
+</body>
+</html>

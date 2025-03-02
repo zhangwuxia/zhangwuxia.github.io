@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let it go</title>
+    <style>
+        #progress {
+            width: 100%;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>音乐</h1>
+    <audio id="audio" src="./Let It Go-Idina Menzel.mp3" preload="auto"></audio>
+    <button id="playBtn">播放</button>
+    <button id="pauseBtn">暂停</button>
+    <br>
+    <input id="progress" type="range" value="0" step="1" min="0">
+
+    <script>
+        const audio = document.getElementById('audio');
+        const playBtn = document.getElementById('playBtn');
+        const pauseBtn = document.getElementById('pauseBtn');
+        const progress = document.getElementById('progress');
+
+        playBtn.addEventListener('click', () => {
+            audio.play();
+        });
+
+        pauseBtn.addEventListener('click', () => {
+            audio.pause();
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            progress.value = (audio.currentTime / audio.duration) * 100;
+        });
+
+        progress.addEventListener('input', () => {
+            audio.currentTime = (progress.value / 100) * audio.duration;
+        });
+    </script>
+
+</body>
+</html>
